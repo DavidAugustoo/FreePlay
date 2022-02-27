@@ -201,3 +201,35 @@ span {
     flex: 1;
     color: white;
 }
+
+/* about */
+
+#about {
+    display: flex;
+    margin-top: 150px;
+}
+
+.about--image {
+    display: flex;
+    justify-content: start;
+    flex: 1;
+}
+
+.about--image img{
+    width: 100%;
+}
+
+.about--desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.about--text {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 500px;
+}
