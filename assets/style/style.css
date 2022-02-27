@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --background-color: #171B1F;
+    --primary-color: #1991EB;
+    --secondary-color: #FFF;
+    --terciary-color: #8d8d8d;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+    color: var(--secondary-color);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 20px;
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+p {
+    font-size: 1rem;
+    color: var(--terciary-color);
+}
+
+.small-text {
+    font-size: 0.9rem;
+}
+
+h1 {
+    font-size: 2.3rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+span {
+    color: var(--primary-color);
+}
+
+.buttom {
+    display: flex;
+    width: 190px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all .3s;
+}
+
+.buttom:hover {
+    background-color: #579fd6;
+}
+
+[data-anime] {
+    opacity: 0;
+    transition: .4s;
+}
+
+[data-anime="left"] {
+    transform: translate3d(-50px, 0, 0);
+}
+
+[data-anime="right"] {
+    transform: translate3d(100px, 0, 0);
+}
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+}
