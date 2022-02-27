@@ -233,3 +233,18 @@ span {
     gap: 25px;
     max-width: 500px;
 }
+
+/* community */
+   
+#community {
+    margin-top: 100px;
+    width: 100%;
+}
+
+.community--image {
+    width: 100%;
+}
+
+.community--image--mobile {
+    display: none;
+}
