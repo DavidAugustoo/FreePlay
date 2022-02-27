@@ -99,3 +99,44 @@ span {
     opacity: 1;
     transform: translate3d(0px, 0px, 0px);
 }
+
+/* header */
+
+#background-banner {
+    width: 100vw;
+    background-image: url('/assets/images/banner.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.header-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0px;
+}
+
+.menu {
+    display: flex;
+    gap: 70px;
+}
+
+.menu--item {
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all .30s;
+}
+
+.menu--item:hover {
+    border-bottom: 3px solid #1991EB;
+}
+
+.menu-mobile--icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-mobile {
+    display: none;
+}
