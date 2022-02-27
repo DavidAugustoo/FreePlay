@@ -248,3 +248,37 @@ span {
 .community--image--mobile {
     display: none;
 }
+
+/* footer */
+
+#footer {
+    margin-top: 100px;
+    padding: 30px 0px;
+    width: 100vw;
+    background-color: #252B33;
+}
+
+.footer--area {
+    display: flex;
+}
+
+.footer--logo {
+    flex: 1;
+}
+
+.footer--links {
+    display: flex;
+    gap: 100px;
+}
+
+.footer--link {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.autor {
+    margin-top: 70px;
+    width: 100%;
+    text-align: center;
+}
