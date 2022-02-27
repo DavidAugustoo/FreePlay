@@ -140,3 +140,29 @@ span {
 .menu-mobile {
     display: none;
 }
+
+/* banner */
+
+.banner {
+    display: flex;
+}
+
+.banner-desc {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.banner-text{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.banner-image {
+    flex: 1;
+}
+
+.banner-image img {
+    width: 100%;
+}
