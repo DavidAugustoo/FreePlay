@@ -253,7 +253,7 @@ span {
 
 #footer {
     margin-top: 100px;
-    padding: 30px 0px;
+    padding: 50px 0px 20px 0px;
     width: 100vw;
     background-color: #252B33;
 }
@@ -281,4 +281,92 @@ span {
     margin-top: 70px;
     width: 100%;
     text-align: center;
+}
+
+
+
+
+@media (max-width: 850px) {
+
+    html {
+        font-size: 13px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0px 60px;
+    }
+
+    .info-cards {
+        grid-template-columns: repeat(1, 1fr);  
+    }
+}
+
+@media (max-width: 850px) {
+
+    .menu-desktop {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu-mobile.closed {
+        display: none;
+    }
+
+    .menu-mobile.open {
+        display: block;
+    }
+
+
+    .menu-mobile--icon {
+        display: block;
+    }
+
+    .menu-mobile--item {
+        padding: 15px;
+    }
+
+    .banner {
+        margin-top: 70px;
+    }
+
+    .banner-image {
+        display: none;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0px 30px;
+    }
+
+    #about {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .community--image {
+        display: none;
+    }
+
+    .community--image--mobile {
+        display: block;
+        width: 100%;
+    }
+
+    .footer--area {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .footer--links {
+        gap: 50px;
+    }
+
+    
 }
