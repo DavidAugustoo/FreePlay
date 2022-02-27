@@ -166,3 +166,38 @@ span {
 .banner-image img {
     width: 100%;
 }
+
+/* info */
+
+#info {
+    margin-top: 150px;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 40px;
+}
+
+.card-item {
+    display: flex;
+    align-items: center;
+    background-color: #252B33;
+    border-radius: 10px;
+    padding: 30px;
+    gap: 30px;
+
+}
+
+.card--image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+.card--desc {
+    flex: 1;
+    color: white;
+}
