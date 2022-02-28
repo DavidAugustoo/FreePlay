@@ -1,3 +1,7 @@
+const s = (el) => document.querySelector(el);
+const sa = (el) => document.querySelectorAll(el);
+
+
 // animatios
 
 let target = document.querySelectorAll('[data-anime]');
@@ -16,8 +20,8 @@ window.addEventListener('scroll', () => {
 
 // menu mobile
 
-let menuMobileIcon = document.querySelector('.menu-mobile--icon');
-let menuMobile = document.querySelector('.menu-mobile');
+let menuMobileIcon = s('.menu-mobile--icon');
+let menuMobile = s('.menu-mobile');
 
 menuMobileIcon.addEventListener('click', () => {
     if(menuMobile.classList.contains('closed')) {
@@ -52,7 +56,37 @@ function goBack() {
 }
 
 function updateMargin() {
-    let slideritemWidth = document.querySelector('.carousel--item').clientWidth;
+    let slideritemWidth = s('.carousel--item').clientWidth;
     let newMargin = (currentSlide * slideritemWidth);
-    document.querySelector('.carousel--item').style.marginLeft = `-${newMargin}px`
+    s('.carousel--item').style.marginLeft = `-${newMargin}px`
 }
+
+// games
+
+async function getGames() {
+    let url = "https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity";
+
+    let response = await fetch(url, {
+        "method": "GET",
+	    "headers": {
+		"x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+		"x-rapidapi-key": "03fb1e4f2dmsh6bb237e14e40631p173a3ajsnf3d499c72407"
+	}});
+
+    let json = await response.json();
+
+    console.log(json);
+
+    json.map((item, index) => {
+
+        let gameCard = s('.modal .game-card').cloneNode(true);
+
+        gameCard.querySelector('.game--image img').src = item.thumbnail;
+        gameCard.querySelector('.game--title').innerHTML = item.title;
+
+
+        s('.game-area').append(gameCard);
+    });
+}
+
+getGames();

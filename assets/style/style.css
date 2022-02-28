@@ -347,6 +347,26 @@ span {
     text-align: center;
 }
 
+/* games */
+
+.modal {
+    display: none;
+}
+
+.game-area {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.game--image {
+    width: auto;
+}
+
+.game--image img {
+    width: 100%;
+}
+
 
 
 
@@ -432,5 +452,15 @@ span {
         gap: 50px;
     }
 
+    .game-area {
+        grid-template-columns: repeat(3, 1fr);
+    }
     
+}
+
+@media (max-width: 425px) {
+    
+    .game-area {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
