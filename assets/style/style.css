@@ -32,6 +32,10 @@ body {
     overflow-x: hidden;
 }
 
+.container-games {
+    padding: 0px 9%;
+}
+
 ul {
     list-style: none;
 }
@@ -56,6 +60,10 @@ h1 {
 
 h2 {
     font-size: 2.3rem;
+}
+
+h3 {
+    font-size: 1.1rem;
 }
 
 h5 {
@@ -186,7 +194,7 @@ span {
     background-position: center;
     background-size: cover;
     width: 100vw;
-    height: 60vh;
+    height: 70vh;
     padding: 0px 3%;
     transition: all ease .3s;
     overflow-x: hidden;
@@ -356,7 +364,16 @@ span {
 .game-area {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    row-gap: 40px;
+    column-gap: 20px;
+    margin-top: 150px;
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .game--image {
@@ -365,6 +382,24 @@ span {
 
 .game--image img {
     width: 100%;
+}
+
+.game--desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #252B33;
+    width: 100px;
+    height: 35px;
+    font-size: 0.9rem;
 }
 
 

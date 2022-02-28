@@ -63,8 +63,11 @@ function updateMargin() {
 
 // games
 
+let url = "https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity";
+let page = 0;
+let json = [];
+
 async function getGames() {
-    let url = "https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity";
 
     let response = await fetch(url, {
         "method": "GET",
@@ -73,20 +76,35 @@ async function getGames() {
 		"x-rapidapi-key": "03fb1e4f2dmsh6bb237e14e40631p173a3ajsnf3d499c72407"
 	}});
 
-    let json = await response.json();
+    return response.json();
+}
 
-    console.log(json);
+async function addGamesIntoDom() {
 
-    json.map((item, index) => {
+    const games = await getGames();
+    json = games;
 
+    const newJson = json.slice(16 * page, (16 * page) + 16);
+
+    newJson.map((item) => {
         let gameCard = s('.modal .game-card').cloneNode(true);
 
         gameCard.querySelector('.game--image img').src = item.thumbnail;
-        gameCard.querySelector('.game--title').innerHTML = item.title;
-
+        gameCard.querySelector('.game--title').innerHTML = `{${item.title.substring(0,25)}`;
+        gameCard.querySelector('.game--resume').innerHTML = `${item.short_description.substring(0,55)}...`;
+        gameCard.querySelector('.tag').innerHTML = item.genre;
 
         s('.game-area').append(gameCard);
     });
 }
 
-getGames();
+addGamesIntoDom();
+
+window.addEventListener('scroll', () => {
+    const {clientHeight, scrollHeight, scrollTop} = document.documentElement
+
+    if(scrollTop + clientHeight >= scrollHeight - 10) {
+        page++;
+        addGamesIntoDom();
+    }
+});
