@@ -28,3 +28,31 @@ menuMobileIcon.addEventListener('click', () => {
         menuMobile.classList.add('closed');
     }
 });
+
+// carousel
+
+let currentSlide = 0;
+
+function goNext() {
+        currentSlide++;
+        if(currentSlide > 2) {
+            currentSlide = 0;
+        }
+
+        updateMargin();
+}
+
+function goBack() {
+    currentSlide--;
+    if(currentSlide < 2) {
+        currentSlide = 0;
+    }
+    
+    updateMargin();
+}
+
+function updateMargin() {
+    let slideritemWidth = document.querySelector('.carousel--item').clientWidth;
+    let newMargin = (currentSlide * slideritemWidth);
+    document.querySelector('.carousel--item').style.marginLeft = `-${newMargin}px`
+}

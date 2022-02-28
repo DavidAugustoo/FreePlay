@@ -15,6 +15,7 @@
 
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -50,11 +51,11 @@ p {
 }
 
 h1 {
-    font-size: 2.3rem;
+    font-size: 3.3rem;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 2.3rem;
 }
 
 h5 {
@@ -102,7 +103,7 @@ span {
 
 /* header */
 
-#background-banner {
+.background-banner {
     width: 100vw;
     background-image: url('/assets/images/banner.png');
     background-position: center;
@@ -165,6 +166,69 @@ span {
 
 .banner-image img {
     width: 100%;
+}
+
+/* carousel */
+
+.carousel {
+    overflow: hidden;
+}
+
+.carousel-area {
+    display: flex;
+    transition: all ease .3s;
+    overflow-x: hidden;
+}
+
+.carousel--item {
+    display: flex;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 60vh;
+    padding: 0px 3%;
+    transition: all ease .3s;
+    overflow-x: hidden;
+}
+
+.carousel--desc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.carousel--text {
+    max-width: 520px;
+}
+
+.carousel--tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 70px;
+    height: 25px;
+    padding: 20px 30px;
+    background-color: rgba(248, 248, 248, 0.3);
+
+}
+
+.carousel-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.carousel--control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(248, 248, 248, 0.3);
+    border-radius: 100%;
+    cursor: pointer;
 }
 
 /* info */
