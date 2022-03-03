@@ -25,6 +25,17 @@ body {
     overflow-x: hidden;
 }
 
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -357,6 +368,10 @@ span {
 
 /* games */
 
+.games {
+    margin-top: 70px;
+}
+
 .modal {
     display: none;
 }
@@ -366,7 +381,12 @@ span {
     grid-template-columns: repeat(4, 1fr);
     row-gap: 40px;
     column-gap: 20px;
-    margin-top: 150px;
+    margin: 70px 0px;
+}
+
+.game--warning {
+    display: none;
+    text-align: center;
 }
 
 .game-card {
@@ -391,7 +411,13 @@ span {
     gap: 15px;
 }
 
-.tag {
+.tags-area {
+    display: flex;
+    align-items: cente;
+    justify-content: space-between;
+}
+
+.tag--genre {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -402,6 +428,71 @@ span {
     font-size: 0.9rem;
 }
 
+.filter-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.filter-plataform {
+    position: relative;
+}
+
+.filter-desc {
+    display: flex;
+    gap: 10px;
+}
+
+.currentSelected {
+    color: white;
+    cursor: pointer;
+}
+
+.filter-options {
+    background-color: #252B33;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filter-options.closed {
+    display: none;
+}
+
+.filter-options.open {
+    display: flex;
+}
+
+.dropdown--filter {
+    cursor: pointer;
+}
+
+.filter-options--item {
+    cursor: pointer;
+}
+
+.search-game {
+    display: block;
+    max-width: 700px;
+    height: 50px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 0px 20px;
+    background-color: #252B33;
+    border: 0;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.search-game:focus {
+    outline: none;
+}
 
 
 

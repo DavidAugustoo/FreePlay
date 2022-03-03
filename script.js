@@ -62,49 +62,127 @@ function updateMargin() {
 }
 
 // games
-
-let url = "https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity";
+let plataform = '?platform=all';
+let category = '';
+let url = `https://free-to-play-games-database.p.rapidapi.com/api/games${plataform}${category}&sort-by=popularity`;
+console.log(url);
 let page = 0;
-let json = [];
+let inputFilter = document.querySelector('.search-game');
 
 async function getGames() {
 
     let response = await fetch(url, {
         "method": "GET",
-	    "headers": {
-		"x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-		"x-rapidapi-key": "03fb1e4f2dmsh6bb237e14e40631p173a3ajsnf3d499c72407"
-	}});
+        "headers": {
+        "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+        "x-rapidapi-key": "03fb1e4f2dmsh6bb237e14e40631p173a3ajsnf3d499c72407"
+    }});
 
     return response.json();
 }
 
 async function addGamesIntoDom() {
 
-    const games = await getGames();
-    json = games;
+        let json = await getGames();
 
-    const newJson = json.slice(16 * page, (16 * page) + 16);
+        console.log(json)
 
-    newJson.map((item) => {
+        json.map((item) => {
         let gameCard = s('.modal .game-card').cloneNode(true);
 
         gameCard.querySelector('.game--image img').src = item.thumbnail;
-        gameCard.querySelector('.game--title').innerHTML = `{${item.title.substring(0,25)}`;
+        gameCard.querySelector('.game--title').innerHTML = `${item.title.substring(0,25)}`;
         gameCard.querySelector('.game--resume').innerHTML = `${item.short_description.substring(0,55)}...`;
-        gameCard.querySelector('.tag').innerHTML = item.genre;
+        gameCard.querySelector('.tag--genre').innerHTML = item.genre;
+        gameCard.querySelector('.tag--platform img').src = WhatThisPlataform(item.platform);
 
         s('.game-area').append(gameCard);
     });
 }
 
+function WhatThisPlataform(platform) {
+    if(platform == "PC (Windows)") {
+        return '/assets/images/iconWindows.png';
+    } else {
+        return '/assets/images/iconBrowser.png';
+    }
+}
+
 addGamesIntoDom();
 
-window.addEventListener('scroll', () => {
-    const {clientHeight, scrollHeight, scrollTop} = document.documentElement
+inputFilter.addEventListener('input', event => {
+    let inputValue = event.target.value.toLowerCase();
+    let games = document.querySelectorAll('.game-card');
+    let warning = document.querySelector('.game--warning');
 
-    if(scrollTop + clientHeight >= scrollHeight - 10) {
-        page++;
-        addGamesIntoDom();
-    }
+    games.forEach((game) => {
+        let gameTitle = game.querySelector('.game--title').textContent.toLowerCase();
+
+        if(gameTitle.includes(inputValue)) {
+            game.style.display = 'flex';
+        } else {
+            game.style.display = 'none'; 
+        }
+
+    });
+
 });
+
+// filter
+
+let filterOptions = s('.filter-options');
+
+s('.filter-desc').addEventListener('click', () => {
+    if (filterOptions.classList.contains('closed')) {
+        openOptions();
+    } else {
+        closeOptions();
+    }
+    
+});
+
+function openOptions() {
+    filterOptions.classList.remove('closed');
+    filterOptions.classList.add('open');
+}
+
+function closeOptions() {
+    filterOptions.classList.remove('open');
+    filterOptions.classList.add('closed');
+}
+
+sa('.filter-options--item').forEach((option) => {
+    option.addEventListener('click', (el) => {
+        s('.filter-options--item.selected').classList.remove('selected');
+        option.classList.add('selected');
+       
+        let optionSelected = s('.filter-options--item.selected').getAttribute('data-name');
+        s('.currentSelected').innerHTML = optionSelected;
+        
+        filterrGames(optionSelected);
+        closeOptions();
+    });
+});
+
+function filterrGames(optionSelected) {
+    
+    
+
+    if(optionSelected == 'Navegador') {
+        plataform = '?platform=browser';
+        category = '';
+    } else if (optionSelected == 'Windows') {
+        plataform = '?platform=pc';
+        category = '';
+    } else {
+        plataform = '?platform=all';
+        category = '';
+    }
+
+    url = `https://free-to-play-games-database.p.rapidapi.com/api/games${plataform}${category}&sort-by=popularity`;
+    s('.game-area').innerHTML = '';
+    getGames();
+    addGamesIntoDom();
+}
+
+
