@@ -130,58 +130,76 @@ inputFilter.addEventListener('input', event => {
 
 // filter
 
-let filterOptions = s('.filter-options');
+let filterOptionsPlatform = s('.filter-options--platform');
+let filterOptionsGenre = s('.filter-options--genre')
 
-s('.filter-desc').addEventListener('click', () => {
-    if (filterOptions.classList.contains('closed')) {
-        openOptions();
+s('.filter-desc--platform').addEventListener('click', () => {
+    if (filterOptionsPlatform.classList.contains('closed')) {
+        filterOptionsPlatform.classList.remove('closed');
     } else {
-        closeOptions();
+        filterOptionsPlatform.classList.add('closed');
     }
     
 });
 
-function openOptions() {
-    filterOptions.classList.remove('closed');
-    filterOptions.classList.add('open');
-}
+s('.filter-desc--genre').addEventListener('click', () => {
+    if (filterOptionsGenre.classList.contains('closed')) {
+        filterOptionsGenre.classList.remove('closed');
+    } else {
+        filterOptionsGenre.classList.add('closed');
+    }
+    
+});
 
-function closeOptions() {
-    filterOptions.classList.remove('open');
-    filterOptions.classList.add('closed');
-}
-
-sa('.filter-options--item').forEach((option) => {
+sa('.filter--item--platform').forEach((option) => {
     option.addEventListener('click', (el) => {
-        s('.filter-options--item.selected').classList.remove('selected');
+        s('.filter--item--platform.selected').classList.remove('selected');
         option.classList.add('selected');
        
-        let optionSelected = s('.filter-options--item.selected').getAttribute('data-name');
-        s('.currentSelected').innerHTML = optionSelected;
+        let platformSelected = s('.filter--item--platform.selected').getAttribute('data-key');
+        s('.currentSelected--platform').innerHTML = s('.filter--item--platform.selected').getAttribute('data-name');
         
-        filterrGames(optionSelected);
-        closeOptions();
+        filterPlataform(platformSelected);
+        filterOptionsPlatform.classList.add('closed');
     });
 });
 
-function filterrGames(optionSelected) {
-    
-    
+sa('.filter--item--genre').forEach((option) => {
+    option.addEventListener('click', (el) => {
+        s('.filter--item--genre.selected').classList.remove('selected');
+        option.classList.add('selected');
+       
+        let genreSelected = s('.filter--item--genre.selected').getAttribute('data-key');
+        s('.currentSelected--genre').innerHTML = genreSelected;
+        
+        filterGenre(genreSelected);
+        filterOptionsGenre.classList.add('closed');
+    });
+});
 
-    if(optionSelected == 'Navegador') {
-        plataform = '?platform=browser';
-        category = '';
-    } else if (optionSelected == 'Windows') {
-        plataform = '?platform=pc';
-        category = '';
-    } else {
-        plataform = '?platform=all';
-        category = '';
-    }
+function filterPlataform(platformSelected) {
+    
+    plataform = `?platform=${platformSelected}`;
 
     url = `https://free-to-play-games-database.p.rapidapi.com/api/games${plataform}${category}&sort-by=popularity`;
     s('.game-area').innerHTML = '';
     getGames();
+    addGamesIntoDom();
+}
+
+function filterGenre(genreSelected) {
+    
+    if(genreSelected == 'todos') {
+        category = '';
+    } else {
+        category = `&category=${genreSelected}`;
+    }
+   
+
+    url = `https://free-to-play-games-database.p.rapidapi.com/api/games${plataform}${category}&sort-by=popularity`;
+
+    getGames();
+    s('.game-area').innerHTML = '';
     addGamesIntoDom();
 }
 

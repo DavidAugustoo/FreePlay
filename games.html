@@ -119,16 +119,34 @@
 
             <div class="filter-area">
                 <input type="text" class="search-game" placeholder="Pesquise jogos">
-                <div class="filter-plataform">
-                    <div class="filter-desc">
-                        <p clas="label">Plataforma: <p class="currentSelected"> Todos </p> <div class="dropdown--filter"><img src="./assets/images/iconDrop.png"></div></p>
+                <div class="filters-dropdown--area">
+                    <div class="filter-platform">
+                        <div class="filter-desc--platform">
+                            <p clas="label">Plataforma: <p class="currentSelected--platform"> Todos </p> <div class="dropdown--filter"><img src="./assets/images/iconDrop.png"></div></p>
+                        </div>
+                        <ul class="filter-options--platform closed">
+                            <li class="filter--item--platform selected" data-key="all" data-name="Todos"><p>Todos</p></li>
+                            <li class="filter--item--platform" data-key="pc" data-name="Windows"><p>Windows</p></li>
+                            <li class="filter--item--platform" data-key="browser" data-name="Navegador"><p>Navegador</p></li>
+                        </ul>
                     </div>
-                    <ul class="filter-options closed">
-                        <li class="filter-options--item selected" data-name="Todos"><p>Todos</p></li>
-                        <li class="filter-options--item" data-name="Windows"><p>Windows</p></li>
-                        <li class="filter-options--item" data-name="Navegador"><p>Navegador</p></li>
-                    </ul>
+    
+                    <div class="filter-genre">
+                        <div class="filter-desc--genre">
+                            <p clas="label">Gênero: <p class="currentSelected--genre"> Todos </p> <div class="dropdown--filter"><img src="./assets/images/iconDrop.png"></div></p>
+                        </div>
+                        <ul class="filter-options--genre closed">
+                            <li class="filter--item--genre selected" data-key="todos"><p>Todos</p></li>
+                            <li class="filter--item--genre" data-key="mmorpg"><p>mmorpg</p></li>
+                            <li class="filter--item--genre" data-key="shooter"><p>shooter</p></li>
+                            <li class="filter--item--genre" data-key="strategy"><p>strategy</p></li>
+                            <li class="filter--item--genre" data-key="racing"><p>racing</p></li>
+                            <li class="filter--item--genre" data-key="sports"><p>sports</p></li>
+                            <li class="filter--item--genre" data-key="survival"><p>survival</p></li>
+                        </ul>
+                    </div>
                 </div>
+             
             </div>
     
             <div class="game-area">

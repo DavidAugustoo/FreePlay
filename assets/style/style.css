@@ -382,6 +382,7 @@ span {
     row-gap: 40px;
     column-gap: 20px;
     margin: 70px 0px;
+    transition: all ease 1s;
 }
 
 .game--warning {
@@ -428,6 +429,11 @@ span {
     font-size: 0.9rem;
 }
 
+.filters-dropdown--area {
+    display: flex;
+    gap: 10px;
+}
+
 .filter-area {
     display: flex;
     justify-content: center;
@@ -435,21 +441,26 @@ span {
     gap: 20px;
 }
 
-.filter-plataform {
+.filter-platform,
+.filter-genre {
     position: relative;
 }
 
-.filter-desc {
+.filter-desc--platform,
+.filter-desc--genre {
     display: flex;
     gap: 10px;
 }
 
-.currentSelected {
+.currentSelected--platform,
+.currentSelected--genre {
     color: white;
     cursor: pointer;
+    text-transform: capitalize;
 }
 
-.filter-options {
+.filter-options--platform,
+.filter-options--genre {
     background-color: #252B33;
     padding: 20px;
     border-radius: 10px;
@@ -458,23 +469,22 @@ span {
     margin-top: 5px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
-.filter-options.closed {
+.filter-options--platform.closed,
+.filter-options--genre.closed {
     display: none;
-}
-
-.filter-options.open {
-    display: flex;
 }
 
 .dropdown--filter {
     cursor: pointer;
 }
 
-.filter-options--item {
+.filter--item--platform,
+.filter--item--genre {
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .search-game {
@@ -580,6 +590,10 @@ span {
 
     .game-area {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .filter-area {
+        flex-direction: column;
     }
     
 }
