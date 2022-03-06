@@ -36,7 +36,7 @@ Práticar principais recursos de HTML, CSS e Javascript. Entre eles:
 
 ##  Layout 🔖
 No link abaixo você encontra o layout do projeto:
-- [Layout](https://www.figma.com/file/WJfDg7Z2sUwTWkuUxMDuvy/FreePlay?node-id=106%3A25)
+- [Layout](https://www.figma.com/file/WJfDg7Z2sUwTWkuUxMDuvy/FreePlay?node-id=0%3A1)
 
 ## Funcionalidades 🛠✨
 - Pesquisar jogos;
