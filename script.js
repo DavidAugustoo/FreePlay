@@ -95,6 +95,7 @@ async function addGamesIntoDom() {
         gameCard.querySelector('.game--resume').innerHTML = `${item.short_description.substring(0,55)}...`;
         gameCard.querySelector('.tag--genre').innerHTML = item.genre;
         gameCard.querySelector('.tag--platform img').src = WhatThisPlataform(item.platform);
+        gameCard.querySelector('.game-card--link').href = item.game_url;
 
         s('.game-area').append(gameCard);
     });

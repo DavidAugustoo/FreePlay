@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="icon" type="imagem/png" href="./assets/images/favicon.svg">
     <title>FreePlay</title>
 </head>
 <body>
@@ -28,10 +29,10 @@
             </div>
             <nav>
                 <ul class="menu-mobile closed">
-                    <li class="menu-mobile--item">Home</li>
-                    <li class="menu-mobile--item">Sobre</li>
+                    <li class="menu-mobile--item"><a href="./index.html">Home</a></li>
+                    <li class="menu-mobile--item"><a href="./index.html#about">Sobre</a></li>
                     <li class="menu-mobile--item">Jogos</li>
-                    <li class="menu-mobile--item">Contato</li>
+                    <li class="menu-mobile--item"><a href="./index.html#footer">Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -103,18 +104,20 @@
         <section class="games">
             <div class="modal">
                 <div class="game-card">
-                    <div class="game--image">
-                        <img src="https://www.freetogame.com/g/475/thumbnail.jpg" alt="">
-                    </div>
-                    <div class="game--desc">
-                        <h3 class="game--title">Titulo</h3>
-                        <p class="game--resume">Resume</p>
-                        <div class="tags-area">
-                            <div class="tag--genre">--</div>
-                            <div class="tag--platform"><img src="./assets/images/iconBrowser.png"></div>
+                    <a href="" class="game-card--link" target="_blanck">
+                        <div class="game--image">
+                            <img src="https://www.freetogame.com/g/475/thumbnail.jpg" alt="">
                         </div>
-                    </div>   
-                    </div>
+                        <div class="game--desc">
+                            <h3 class="game--title">Titulo</h3>
+                            <p class="game--resume">Resume</p>
+                            <div class="tags-area">
+                                <div class="tag--genre">--</div>
+                                <div class="tag--platform"><img src="./assets/images/iconBrowser.png"></div>
+                            </div>
+                        </div> 
+                    </a>
+                </div>
             </div>
 
             <div class="filter-area">

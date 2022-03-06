@@ -548,6 +548,12 @@ span {
 
     .menu-mobile--item {
         padding: 15px;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+
+    .menu-mobile--item:hover {
+        background-color: #1991EB;
     }
 
     .banner {
